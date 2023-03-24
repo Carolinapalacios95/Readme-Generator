@@ -34,19 +34,30 @@ const questions = [
       },
       {
         type: "input",
-        name: "screenshot",
-        message: "Please provide the relative path to the image you want to use as the screenshot."
-      },
-      {
-        type: "input",
         name: "installation",
-        message: "Describe any required packages needed for the installation of this application."
+        message: "Describe any required packages needed for the installation of this application. (Required)",
+        validate: installationInput => {
+          if (installationInput) {
+              return true;
+          } else {
+              console.log('Please enter installation information!');
+              return false;
+          }
+      },
       },
       {
         type: "checkbox",
         name: "license",
         message: "Please select a license applicable to this project.",
         choices: ["MIT", "APACHE2.0", "Boost1.0", "MPL2.0", "BSD2", "BSD3", "none"],
+        validate: licenseInput => {
+          if (licenseInput) {
+              return true;
+          } else {
+              console.log('Please provide license information!');
+              return false;
+          }
+        }
       },
       {
         type: "input",
@@ -60,19 +71,11 @@ const questions = [
                 return false;
             }
         },
-            validate: licenseInput => {
-                if (licenseInput) {
-                    return true;
-                } else {
-                    console.log('Please provide license information!');
-                    return false;
-                }
-            }
-        },
+      },
       {
         type: 'input',
         name: 'contributing',
-        message: 'Please enter your guidelines for contributing.',
+        message: 'Please enter your guidelines for contributing. (Required)',
         validate: contributingInput => {
             if (contributingInput) {
                 return true;
@@ -81,6 +84,50 @@ const questions = [
                 return false;
             }
         }
+      },
+      {
+        type: "input",
+        name: "tests",
+        message: "Provide walkthrough of required tests if applicable or N/A. (Required)",
+        validate: testsInput => {
+          if (testsInput) {
+              return true;
+          } else {
+              console.log('Please enter walkthrough of required tests or N/A!');
+              return false;
+          }
+        }  
+      },
+      {
+        type: "input",
+        name: "github",
+        message: "Write your GitHub username.",
+        validate:  githubInput => {
+          if (githubInput) {
+              return true;
+          } else {
+              console.log('Please enter your Github username. (Required)' );
+              return false;
+          }
+        }
+      },
+      {
+        type: "input",
+        name: "email",
+        message: "Provide a valid email address. (Required)",
+        validate:  emailInput => {
+          if (emailInput) {
+              return true;
+          } else {
+              console.log('Please enter your email address!');
+              return false;
+          }
+        }
+      },
+      {
+        type: "input",
+        name: "screenshot",
+        message: "Please provide the relative path to the image you want to use as the screenshot."
       },
       {
         type: "input",
@@ -94,25 +141,10 @@ const questions = [
       },
       {
         type: "input",
-        name: "creator",
-        message: "Write your GitHub username.",
-      },
-      {
-        type: "input",
-        name: "email",
-        message: "Provide a valid email address.",
-      },
-      {
-        type: "input",
         name: "contributors",
         message: "Please list any contributors. (Use GitHub usernames)",
         default: "",
       },
-      {
-        type: "input",
-        name: "test",
-        message: "Provide walkthrough of required tests if applicable.",
-      }
 ];
 
 // TODO: Create a function to write README file
