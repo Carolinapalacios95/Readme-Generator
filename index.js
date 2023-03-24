@@ -47,14 +47,6 @@ const questions = [
         name: "license",
         message: "Please select a license applicable to this project.",
         choices: ["MIT", "APACHE2.0", "Boost1.0", "MPL2.0", "BSD2", "BSD3", "none"],
-        default: 0,
-        when: ({ contents }) => {
-            if (contents.indexOf('License') > -1) {
-                return true;
-            } else {
-                return false;
-            }
-        }
       },
       {
         type: "input",
@@ -81,13 +73,6 @@ const questions = [
         type: 'input',
         name: 'contributing',
         message: 'Please enter your guidelines for contributing.',
-        when: ({ contents }) => {
-            if (contents.indexOf('Contributing') > -1) {
-                return true;
-            } else {
-                return false;
-            }
-        },
         validate: contributingInput => {
             if (contributingInput) {
                 return true;
@@ -131,10 +116,17 @@ const questions = [
 ];
 
 // TODO: Create a function to write README file
-function writeToFile(fileName, data) {}
+function writeToFile(data) {
+  const fileName = './README.md'
+  fs.writeFile(fileName, data, (err) =>
+  err ? console.log(err) : console.log('Success!'))
+}
 
 // TODO: Create a function to initialize app
-function init() {}
+function init() {
+  inquirer.prompt(questions)
+  .then (responses => writeToFile(generateMarkdown(responses)))
+}
 
 // Function call to initialize app
 init();
