@@ -16,7 +16,7 @@ function renderLicenseBadge(license) {
   } else if ( license == "BSD3") {
     return `[![License: BSD3](https://img.shields.io/badge/License-BSD_3--Clause-blue.svg)](${renderLicenseLink(license)})`;
   } 
-};
+}
 
 // TODO: Create a function that returns the license link
 // If there is no license, return an empty string
@@ -38,7 +38,7 @@ function renderLicenseLink(license) {
   } else if ( license == "BSD3") {
     return "https://opensource.org/licenses/BSD-3-Clause";
   } 
-};
+}
    
      
 
@@ -70,35 +70,35 @@ ${renderLicenseBadge(data.license)}
 * [Tests](#tests)
 * [Questions](#questions)
 
-## [Description](#table-of-contents)
+## [Description]
     
 ${data.description}
   
-## [Installation](#table-of-contents)
+## [Installation]
 
 ${data.installation}
 
-## [Usage](#table-of-contents)
+## [Usage]
 
 ${data.usage}
 
 ${renderLicenseSection(data.license)}
 
-## [Contributing](#table-of-contents)
+## [Contributing]
 
 ${data.contribute}
 
-## [Tests](#table-of-contents)
+## [Tests]
 
 ${data.tests}
 
-## [Questions](#table-of-contents)
+## [Questions]
 
 If there are additional questions, please reach out to me here: 
 
 * GitHub: https://github.com/${data.username}
 * Email: ${data.email}
 `;
-};
+}
 
 module.exports = generateMarkdown;
