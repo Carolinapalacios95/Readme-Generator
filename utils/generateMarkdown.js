@@ -61,37 +61,38 @@ function generateMarkdown(data) {
 return `# ${data.title}
 
 ${renderLicenseBadge(data.license)}
-
-## Description
-    
-${data.description}
     
 ## Table of Contents
-* [Installation](#Installation)
-* [Usage](#Usage)${data.license == 'None' ? '' : "\n* [License](#License)"}
-* [Contributing](#Contributing)
-* [Tests](#Tests)
-* [Questions](#Questions)
+* [Description](#description)
+* [Installation](#installation)
+* [Usage](#usage)${data.license == 'None' ? '' : "\n* [License](#license)"}
+* [Contributing](#contributing)
+* [Tests](#tests)
+* [Questions](#questions)
+
+## [Description](#table-of-contents)
+    
+${data.description}
   
-## Installation
+## [Installation](#table-of-contents)
 
 ${data.installation}
 
-## Usage
+## [Usage](#table-of-contents)
 
 ${data.usage}
 
 ${renderLicenseSection(data.license)}
 
-## Contributing
+## [Contributing](#table-of-contents)
 
 ${data.contribute}
 
-## Tests
+## [Tests](#table-of-contents)
 
 ${data.tests}
 
-## Questions
+## [Questions](#table-of-contents)
 
 If there are additional questions, please reach out to me here: 
 
