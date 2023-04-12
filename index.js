@@ -124,28 +124,6 @@ const questions = [
           }
         }
       }
-      // removed comma
-      // {
-      //   type: "input",
-      //   name: "screenshot",
-      //   message: "Please provide the relative path to the image you want to use as the screenshot."
-      // },
-      // {
-      //   type: "input",
-      //   name: "demo",
-      //   message: "Please include a link to your demo here.",
-      // },
-      // {
-      //   type: "input",
-      //   name: "userstory",
-      //   message: "List some cool features about this project here.",
-      // },
-      // {
-      //   type: "input",
-      //   name: "criteria",
-      //   message: "Please list any contributors. (Use GitHub usernames)",
-      //   default: "",
-      // }
 ];
 
 // TODO: Create a function to write README file
