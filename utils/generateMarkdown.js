@@ -70,29 +70,29 @@ ${renderLicenseBadge(data.license)}
 * [Tests](#tests)
 * [Questions](#questions)
 
-## [Description]
+## Description
     
 ${data.description}
   
-## [Installation]
+## Installation
 
 ${data.installation}
 
-## [Usage]
+## Usage
 
 ${data.usage}
 
 ${renderLicenseSection(data.license)}
 
-## [Contributing]
+## Contributing
 
 ${data.contribute}
 
-## [Tests]
+## Tests
 
 ${data.tests}
 
-## [Questions]
+## Questions
 
 If there are additional questions, please reach out to me here: 
 
