@@ -1,7 +1,7 @@
 // TODO: Include packages needed for this application
 const fs = require('fs');
 const inquirer = require('inquirer');
-const path = require('path');
+// const path = require('path');
 const generateMarkdown = require('./utils/generateMarkdown');
 
 // TODO: Create an array of questions for user input
@@ -46,7 +46,7 @@ const questions = [
       },
       },
       {
-        type: "checkbox",
+        type: "list",
         name: "license",
         message: "Please select a license applicable to this project.",
         choices: ["MIT", "APACHE2.0", "Boost1.0", "MPL2.0", "BSD2", "BSD3", "none"],
@@ -74,7 +74,7 @@ const questions = [
       },
       {
         type: 'input',
-        name: 'contributing',
+        name: 'contribute',
         message: 'Please enter your guidelines for contributing. (Required)',
         validate: contributingInput => {
             if (contributingInput) {
@@ -100,7 +100,7 @@ const questions = [
       },
       {
         type: "input",
-        name: "github",
+        name: "username",
         message: "Write your GitHub username.",
         validate:  githubInput => {
           if (githubInput) {
@@ -123,42 +123,43 @@ const questions = [
               return false;
           }
         }
-      },
-      {
-        type: "input",
-        name: "screenshot",
-        message: "Please provide the relative path to the image you want to use as the screenshot."
-      },
-      {
-        type: "input",
-        name: "require",
-        message: "List any project dependencies here.",
-      },
-      {
-        type: "input",
-        name: "features",
-        message: "List some cool features about this project here.",
-      },
-      {
-        type: "input",
-        name: "contributors",
-        message: "Please list any contributors. (Use GitHub usernames)",
-        default: "",
-      },
+      }
+      // removed comma
+      // {
+      //   type: "input",
+      //   name: "screenshot",
+      //   message: "Please provide the relative path to the image you want to use as the screenshot."
+      // },
+      // {
+      //   type: "input",
+      //   name: "demo",
+      //   message: "Please include a link to your demo here.",
+      // },
+      // {
+      //   type: "input",
+      //   name: "userstory",
+      //   message: "List some cool features about this project here.",
+      // },
+      // {
+      //   type: "input",
+      //   name: "criteria",
+      //   message: "Please list any contributors. (Use GitHub usernames)",
+      //   default: "",
+      // }
 ];
 
 // TODO: Create a function to write README file
 function writeToFile(data) {
-  const fileName = './README.md'
+  const fileName = './newREADME.md'
   fs.writeFile(fileName, data, (err) =>
-  err ? console.log(err) : console.log('Success!'))
-}
+  err ? console.log(err) : console.log('Saved new ReadME.md!'))
+};
 
 // TODO: Create a function to initialize app
 function init() {
   inquirer.prompt(questions)
   .then (responses => writeToFile(generateMarkdown(responses)))
-}
+};
 
 // Function call to initialize app
 init();
